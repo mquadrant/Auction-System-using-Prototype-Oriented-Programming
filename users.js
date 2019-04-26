@@ -6,7 +6,8 @@ function Users(name,email,password){
     this.password = password;
 
     //Add to the users table in the db
-    let id = db.users.length === 0 ? 1 : ++db.users.length;
+    let length = db.users.length; 
+    let id = length === 0 ? 1 : ++db.users[length-1].id;
     db.users.push({
         id,
         name : this.name,
