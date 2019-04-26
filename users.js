@@ -13,4 +13,8 @@ function Users(name,email,password){
         email : this.email,
         password : this.password
     });
+    
+    return db.users[id-1];
 }
+
+module.exports = Users;
