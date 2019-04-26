@@ -4,3 +4,5 @@ let db = {
     auctions: [],
     bids: []
 }
+
+module.exports = db;
