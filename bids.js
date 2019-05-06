@@ -23,14 +23,14 @@ function Bid(auctionId, productName, userId, bidderName, bidAmount) {
 }
 
 Bid.prototype.makeBid = function (auctionId, bidAmount) {
-    db.auctions.forEach((auction) => {
-        if (auction.id === auctionId) {
-            productName = auction.productName;
-            if(auction.minimumBidAmount <= bidAmount){
-                return "Your Bidding Amount is less than the Miniumum which is " + auction.minimumBidAmount;
+    for (let auction in db.auctions) {
+        if (db.auctions[auction].id === auctionId) {
+            productName = db.auctions[auction].productName;
+            if (db.auctions[auction].minimumBidAmount >= bidAmount) {
+                return "Your Bidding Amount is less than the Miniumum which is " + db.auctions[auction].minimumBidAmount;
             }
         }
-    });
+    }
     return new Bid(auctionId, productName, this.id, this.name, bidAmount);
 
 }
