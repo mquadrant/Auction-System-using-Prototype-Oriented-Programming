@@ -54,6 +54,7 @@ describe('User should be able to view all auctions', () => {
 describe('User viewing all owned auctions',() => {
     it('should return all owned auctions',()=>{
         let ownedAuctions = tommy.viewMyAuctions();
-        expect(ownedAuctions).toEqual();
+        expect(ownedAuctions).toEqual([{id: 1, minimumBidAmount: 5000000, productDescription: "Latest Limo in town",
+         productName: "Limousine 2019 Model", userId: 2}]);
     })
 })

@@ -24,7 +24,7 @@ Users.prototype.createUser = function () {
     return db.users[id - 1];
 }
 
-Users.prototype.viewMyAuction = function () {
-    return db.auctions.filter(auction,()=>auction.userId == this.id);
+Users.prototype.viewMyAuctions = function () {
+    return db.auctions.filter((auction)=>auction.userId == this.id);
 }
 module.exports = Users;
