@@ -23,5 +23,9 @@ Admins.prototype.createAdmin = function () {
     return db.admins[id - 1];
 }
 
+Admins.prototype.viewAllUsers = function () {
+    return db.users;
+}
+
 
 module.exports = Admins;
