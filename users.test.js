@@ -1,5 +1,7 @@
 const Users = require('./users');
-const Auction = require('./auctions');
+const AuctionObject = require('./auctions');
+
+const Auction = AuctionObject[0];
 
 let charity = new Users('Charity', 'charity45@gmail.com', 'dhhS34*7');
 let tommy = new Users('Tommy', 'ctommy@gmail.com', 'd3434*7');
@@ -56,5 +58,12 @@ describe('User viewing all owned auctions',() => {
         let ownedAuctions = tommy.viewMyAuctions();
         expect(ownedAuctions).toEqual([{id: 1, minimumBidAmount: 5000000, productDescription: "Latest Limo in town",
          productName: "Limousine 2019 Model", userId: 2}]);
+    })
+})
+
+describe('User should bid on auction by ID',() => {
+    it('should return bid on auction',()=>{
+        let makeBid = tommy.makeBid(1,4000000);
+        expect(makeBid).toEqual();
     })
 })
