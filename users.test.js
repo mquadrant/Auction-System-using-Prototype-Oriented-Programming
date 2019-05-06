@@ -92,10 +92,18 @@ describe('User should view all bid on an auction by ID', () => {
 describe('Creating two Admins through the Admin constructor', () => {
 
     it('should return an admin object for the first admin', () => {
-        expect(mark.createUser()).toEqual({ id: 1, name: 'Mark', email: 'mark@gmail.com', password: 'dhhS34*7' });
+        expect(mark.createAdmin()).toEqual({ id: 1, name: 'Mark', email: 'mark@gmail.com', password: 'dhhS34*7' });
     });
 
     it('should return an admin object for the second admin', () => {
-        expect(sylva.createUser()).toEqual({ id: 2, name: 'Sylva', email: 'sylva@gmail.com', password: 'd3434*7' });
+        expect(sylva.createAdmin()).toEqual({ id: 2, name: 'Sylva', email: 'sylva@gmail.com', password: 'd3434*7' });
     });
 });
+
+describe('Admin should be able to view all users', () => {
+    it('should return an array of all users', () => {
+        expect(mark.viewAllUsers()).toEqual([
+        { id: 1, name: 'Charity', email: 'charity45@gmail.com', password: 'dhhS34*7' },
+        { id: 2, name: 'Tommy', email: 'ctommy@gmail.com', password: 'd3434*7' }]);
+    })
+})
