@@ -46,39 +46,42 @@ describe('User should be able to view all auctions', () => {
         },
         {
             id: 2, productName: 'Silver Wrist Watch', productDescription: 'Ancient wrist watch',
-            minimumBidAmount: 700000, userId: 1}]);
+            minimumBidAmount: 700000, userId: 1
+        }]);
     });
 
 });
 
-describe('User viewing all owned auctions',() => {
-    it('should return all owned auctions',()=>{
+describe('User viewing all owned auctions', () => {
+    it('should return all owned auctions', () => {
         let ownedAuctions = tommy.viewMyAuctions();
-        expect(ownedAuctions).toEqual([{id: 1, minimumBidAmount: 5000000, productDescription: "Latest Limo in town",
-         productName: "Limousine 2019 Model", userId: 2}]);
+        expect(ownedAuctions).toEqual([{
+            id: 1, minimumBidAmount: 5000000, productDescription: "Latest Limo in town",
+            productName: "Limousine 2019 Model", userId: 2
+        }]);
     })
 })
 
-describe('User should bid on auction by ID',() => {
-    it('should return bid on auction',()=>{
-        let makeBid = tommy.makeBid(1,6000000);
-        expect(makeBid).toEqual({"auctionId": 1, "bidAmount": 6000000, "bidderName": "Tommy", "id": 1, "productName": "Limousine 2019 Model", "userId": 2});
+describe('User should bid on auction by ID', () => {
+    it('should return bid on auction', () => {
+        let makeBid = charity.makeBid(1, 6000000);
+        expect(makeBid).toEqual({ auctionId: 1, bidAmount: 6000000, bidderName: "Charity", id: 1, productName: "Limousine 2019 Model", userId: 2 });
     })
-    it('should give error as bid Amount is less than bid minimum',()=>{
-        let makeBid = tommy.makeBid(1,10000);
+    it('should return bid when another user bid on auction', () => {
+        let makeBid = tommy.makeBid(2, 800000);
+        expect(makeBid).toEqual({ auctionId: 2, bidAmount: 800000, bidderName: "Tommy", id: 2, productName: "Silver Wrist Watch", userId: 1 });
+    })
+    it('should give error as bid Amount is less than bid minimum', () => {
+        let makeBid = tommy.makeBid(1, 10000);
         expect(makeBid).toEqual('Your Bidding Amount is less than the Miniumum which is 5000000');
     })
 
 });
 
-describe('User should bid on auction by ID',() => {
-    it('should return bid on auction',()=>{
-        let makeBid = tommy.makeBid(1,6000000);
-        expect(makeBid).toEqual({"auctionId": 1, "bidAmount": 6000000, "bidderName": "Tommy", "id": 1, "productName": "Limousine 2019 Model", "userId": 2});
-    })
-    it('should give error as bid Amount is less than bid minimum',()=>{
-        let makeBid = tommy.makeBid(1,10000);
-        expect(makeBid).toEqual('Your Bidding Amount is less than the Miniumum which is 5000000');
-    })
+describe('User should view all bid on an auction by ID', () => {
+    it('should return all bids made on an auction', () => {
+        let viewBid = tommy.viewBidsOnAuction(1);
+        expect(viewBid).toEqual([{ auctionId: 1, bidAmount: 6000000, bidderName: "Charity", id: 1, productName: "Limousine 2019 Model", userId: 2 }]);
+    });
 
 });

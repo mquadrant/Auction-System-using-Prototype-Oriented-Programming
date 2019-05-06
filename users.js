@@ -33,12 +33,13 @@ Users.prototype.makeBid = function (auctionId, bidAmount) {
     for (let auction in db.auctions) {
         if (db.auctions[auction].id === auctionId) {
             productName = db.auctions[auction].productName;
+            userId = db.auctions[auction].userId;
             if (db.auctions[auction].minimumBidAmount >= bidAmount) {
                 return "Your Bidding Amount is less than the Miniumum which is " + db.auctions[auction].minimumBidAmount;
             }
         }
     }
-    return new Bid(auctionId, productName, this.id, this.name, bidAmount);
+    return new Bid(auctionId, productName, userId, this.name, bidAmount);
 
 }
 module.exports = Users;
