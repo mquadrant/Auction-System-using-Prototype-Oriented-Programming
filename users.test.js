@@ -115,5 +115,9 @@ describe('Admin can delete user by ID',() => {
 })
 
 test('Admin can delete auction by ID', () => {
-    expect(mark.deleteAuction(1)).toEqual()
+    expect(mark.deleteAuction(1)).toEqual([
+    {
+        id: 2, productName: 'Silver Wrist Watch', productDescription: 'Ancient wrist watch',
+        minimumBidAmount: 700000, userId: 1
+    }])
 })

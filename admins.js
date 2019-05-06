@@ -31,4 +31,8 @@ Admins.prototype.deleteUser = function (userId) {
     return db.users.filter((user) => user.id !== userId);
 }
 
+Admins.prototype.deleteAuction = function (auctionId) {
+    return db.auctions.filter((auction) => auction.id !== auctionId);
+}
+
 module.exports = Admins;
