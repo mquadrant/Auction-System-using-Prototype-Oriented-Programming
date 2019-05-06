@@ -21,5 +21,10 @@ describe('Creating two Auctions through the Auction constructor',()=>{
         expect(auctionOne).toEqual({id: 1, productName:'Golden shoe lace',productDescription:'Shoe lace used by Bill Gate',
         minimumBidAmount:100000,userId:1});
     });
+    it('should return an auction object for the first auction',()=>{
+        let auctionTwo = new Auction('Silver wrist watch','Ancient Silver watch of all time',303000,2);
+        expect(auctionTwo).toEqual({id: 2, productName:'Silver wrist watch',productDescription:'Ancient Silver watch of all time',
+        minimumBidAmount:303000,userId:2});
+    });
 
 });
