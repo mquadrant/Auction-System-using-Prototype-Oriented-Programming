@@ -1,8 +1,11 @@
 const Users = require('./users');
-const Auction = require('./auctions');
+const Admins = require('./admins');
 
 let charity = new Users('Charity', 'charity45@gmail.com', 'dhhS34*7');
 let tommy = new Users('Tommy', 'ctommy@gmail.com', 'd3434*7');
+
+let mark = new Admins('Mark', 'mark@gmail.com', 'dhhS34*7');
+let sylva = new Admins('Sylva', 'sylva@gmail.com', 'd3434*7');
 
 describe('Creating two Users through the Users constructor', () => {
 
@@ -84,4 +87,15 @@ describe('User should view all bid on an auction by ID', () => {
         expect(viewBid).toEqual([{ auctionId: 1, bidAmount: 6000000, bidderName: "Charity", id: 1, productName: "Limousine 2019 Model", userId: 2 }]);
     });
 
+});
+
+describe('Creating two Admins through the Admin constructor', () => {
+
+    it('should return an admin object for the first admin', () => {
+        expect(mark.createUser()).toEqual({ id: 1, name: 'Mark', email: 'mark@gmail.com', password: 'dhhS34*7' });
+    });
+
+    it('should return an admin object for the second admin', () => {
+        expect(sylva.createUser()).toEqual({ id: 2, name: 'Sylva', email: 'sylva@gmail.com', password: 'd3434*7' });
+    });
 });
