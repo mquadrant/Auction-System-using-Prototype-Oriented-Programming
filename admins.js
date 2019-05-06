@@ -28,7 +28,7 @@ Admins.prototype.viewAllUsers = function () {
 }
 
 Admins.prototype.deleteUser = function (userId) {
-    return db.users.filter((user) => user.id === userId);
+    return db.users.filter((user) => user.id !== userId);
 }
 
 module.exports = Admins;

@@ -110,6 +110,10 @@ describe('Admin should be able to view all users', () => {
 
 describe('Admin can delete user by ID',() => {
     it('should return an array of remaining users',() => {
-        expect(mark.deleteUser(userId)).toEqual([{ id: 2, name: 'Tommy', email: 'ctommy@gmail.com', password: 'd3434*7' }]);
+        expect(mark.deleteUser(1)).toEqual([{ id: 2, name: 'Tommy', email: 'ctommy@gmail.com', password: 'd3434*7' }]);
     })
+})
+
+test('Admin can delete auction by ID', () => {
+    expect(mark.deleteAuction(1)).toEqual()
 })
