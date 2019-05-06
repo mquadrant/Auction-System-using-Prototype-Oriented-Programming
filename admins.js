@@ -28,4 +28,5 @@ Admins.prototype.viewAllUsers = function () {
 }
 
 
+
 module.exports = Admins;
