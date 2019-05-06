@@ -62,6 +62,6 @@ describe('User viewing all owned auctions',() => {
 describe('User should bid on auction by ID',() => {
     it('should return bid on auction',()=>{
         let makeBid = tommy.makeBid(1,4000000);
-        expect(makeBid).toEqual();
+        expect(makeBid).toEqual({"auctionId": 1, "bidAmount": 4000000, "bidderName": "Tommy", "id": 1, "productName": "Limousine 2019 Model", "userId": 2});
     })
 })

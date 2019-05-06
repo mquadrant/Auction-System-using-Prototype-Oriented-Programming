@@ -1,6 +1,5 @@
 const db = require('./db');
 const Auction = require('./auctions');
-const bids = require('./bids');
 
 function Users(name, email, password) {
     this.name = name;

@@ -1,5 +1,5 @@
 const db = require('./db');
-const bids = require('./bids');
+const Bids = require('./bids');
 
 function Auction(productName, productDescription, minimumBidAmount, userId) {
     this.productName = productName;
@@ -20,6 +20,9 @@ function Auction(productName, productDescription, minimumBidAmount, userId) {
     });
     return db.auctions[id - 1];
 }
+
+Auction.prototype = Object.create(Bids.prototype);
+Auction.prototype.constructor = Auction;
 
 Auction.prototype.createAuction = function (productName, productDescription, minimumBidAmount) {
     return new Auction(productName, productDescription, minimumBidAmount, this.id);
