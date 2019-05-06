@@ -20,4 +20,6 @@ db.auctions.push({
 return db.auctions[id - 1];
 }
 
+
+
 module.exports = Auction;
