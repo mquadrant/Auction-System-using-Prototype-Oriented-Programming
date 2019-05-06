@@ -1,7 +1,5 @@
 const Users = require('./users');
-const AuctionObject = require('./auctions');
-
-const Auction = AuctionObject[0];
+const Auction = require('./auctions');
 
 let charity = new Users('Charity', 'charity45@gmail.com', 'dhhS34*7');
 let tommy = new Users('Tommy', 'ctommy@gmail.com', 'd3434*7');
