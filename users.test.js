@@ -27,10 +27,10 @@ describe('Creating two Auctions through the Users prototype', () => {
     });
 
     it('should return an auction object for the second auction', () => {
-        let createAuction = tommy.createAuction('Silver Wrist Watch', 'Ancient wrist watch', 700000);
+        let createAuction = charity.createAuction('Silver Wrist Watch', 'Ancient wrist watch', 700000);
         expect(createAuction).toEqual({
             id: 2, productName: 'Silver Wrist Watch', productDescription: 'Ancient wrist watch',
-            minimumBidAmount: 700000, userId: 2
+            minimumBidAmount: 700000, userId: 1
         });
     });
 
@@ -38,16 +38,22 @@ describe('Creating two Auctions through the Users prototype', () => {
 
 describe('User should be able to view all auctions', () => {
 
-    it('should all available auctions', () => {
+    it('should return all available auctions', () => {
         let allAuctions = tommy.viewAllAuctions();
-        console.log(allAuctions);
         expect(allAuctions).toEqual([{
             id: 1, productName: 'Limousine 2019 Model', productDescription: 'Latest Limo in town',
             minimumBidAmount: 5000000, userId: 2
         },
         {
             id: 2, productName: 'Silver Wrist Watch', productDescription: 'Ancient wrist watch',
-            minimumBidAmount: 700000, userId: 2}]);
+            minimumBidAmount: 700000, userId: 1}]);
     });
 
 });
+
+describe('User viewing all owned auctions',() => {
+    it('should return all owned auctions',()=>{
+        let ownedAuctions = tommy.viewMyAuctions();
+        expect(ownedAuctions).toEqual();
+    })
+})
