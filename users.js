@@ -1,5 +1,6 @@
 const db = require('./db');
 const Auction = require('./auctions');
+const Bid = require('./bids');
 
 function Users(name, email, password) {
     this.name = name;
@@ -26,5 +27,18 @@ Users.prototype.createUser = function () {
 
 Users.prototype.viewMyAuctions = function () {
     return db.auctions.filter((auction) => auction.userId == this.id);
+}
+
+Users.prototype.makeBid = function (auctionId, bidAmount) {
+    for (let auction in db.auctions) {
+        if (db.auctions[auction].id === auctionId) {
+            productName = db.auctions[auction].productName;
+            if (db.auctions[auction].minimumBidAmount >= bidAmount) {
+                return "Your Bidding Amount is less than the Miniumum which is " + db.auctions[auction].minimumBidAmount;
+            }
+        }
+    }
+    return new Bid(auctionId, productName, this.id, this.name, bidAmount);
+
 }
 module.exports = Users;

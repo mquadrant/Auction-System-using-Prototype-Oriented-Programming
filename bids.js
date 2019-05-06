@@ -22,19 +22,6 @@ function Bid(auctionId, productName, userId, bidderName, bidAmount) {
     return db.bids[id - 1];
 }
 
-Bid.prototype.makeBid = function (auctionId, bidAmount) {
-    for (let auction in db.auctions) {
-        if (db.auctions[auction].id === auctionId) {
-            productName = db.auctions[auction].productName;
-            if (db.auctions[auction].minimumBidAmount >= bidAmount) {
-                return "Your Bidding Amount is less than the Miniumum which is " + db.auctions[auction].minimumBidAmount;
-            }
-        }
-    }
-    return new Bid(auctionId, productName, this.id, this.name, bidAmount);
-
-}
-
 Bid.prototype.viewBidsOnAuction = function (auctionId) {
     return db.bids.filter((bid) => bid.auctionId == auctionId);
 }
