@@ -121,3 +121,8 @@ test('Admin can delete auction by ID', () => {
         minimumBidAmount: 700000, userId: 1
     }])
 })
+
+test('Admin can show the winner of an auction by auctionID', () => {
+    expect(mark.winnerAuction(2)).toEqual('tommy');
+})
+
