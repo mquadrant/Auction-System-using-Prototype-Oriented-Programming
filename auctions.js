@@ -10,6 +10,7 @@ this.userId = userId;
 
 let length = db.auctions.length;
 let id = length === 0 ? 1 : ++db.auctions[length - 1].id;
+this.id = id;
 db.auctions.push({
     id,
     productName: this.productName,
@@ -20,6 +21,12 @@ db.auctions.push({
 return db.auctions[id - 1];
 }
 
+Auction.prototype.createAuction = function(productName, productDescription, minimumBidAmount){
+    return new Auction(productName,productDescription,minimumBidAmount,this.id);
+}
 
+Auction.prototype.viewAllAuctions = function(){
+    return db.auctions;
+}
 
 module.exports = Auction;
