@@ -4,7 +4,6 @@ const Users = require('./users');
 
 function Admins(name, email, password) {
     Users.call(this, name, email, password);
-
 }
 
 Admins.prototype = Object.create(Auction.prototype);

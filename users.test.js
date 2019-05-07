@@ -105,24 +105,24 @@ describe('Admin should be able to view all users', () => {
         expect(mark.viewAllUsers()).toEqual([
         { id: 1, name: 'Charity', email: 'charity45@gmail.com', password: 'dhhS34*7' },
         { id: 2, name: 'Tommy', email: 'ctommy@gmail.com', password: 'd3434*7' }]);
-    })
-})
+    });
+});
 
 describe('Admin can delete user by ID',() => {
     it('should return an array of remaining users',() => {
         expect(mark.deleteUser(1)).toEqual([{ id: 2, name: 'Tommy', email: 'ctommy@gmail.com', password: 'd3434*7' }]);
-    })
-})
+    });
+});
 
 test('Admin can delete auction by ID', () => {
     expect(mark.deleteAuction(1)).toEqual([
     {
         id: 2, productName: 'Silver Wrist Watch', productDescription: 'Ancient wrist watch',
         minimumBidAmount: 700000, userId: 1
-    }])
-})
+    }]);
+});
 
 test('Admin can show the winner of an auction by auctionID', () => {
     expect(mark.winnerAuction(2)).toEqual('Tommy');
-})
+});
 
