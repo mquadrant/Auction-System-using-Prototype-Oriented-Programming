@@ -35,4 +35,10 @@ Admins.prototype.deleteAuction = function (auctionId) {
     return db.auctions.filter((auction) => auction.id !== auctionId);
 }
 
+Admins.prototype.winnerAuction = function (auctionID) {
+    let bidsOnAuction = db.bids.filter((bid) => bid.auctionId === auctionID)
+    let len = bidsOnAuction.length;
+    return bidsOnAuction[len - 1].bidderName;
+}
+
 module.exports = Admins;

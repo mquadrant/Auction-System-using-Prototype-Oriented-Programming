@@ -123,6 +123,6 @@ test('Admin can delete auction by ID', () => {
 })
 
 test('Admin can show the winner of an auction by auctionID', () => {
-    expect(mark.winnerAuction(2)).toEqual('tommy');
+    expect(mark.winnerAuction(2)).toEqual('Tommy');
 })
 
