@@ -114,15 +114,19 @@ describe('Admin can delete user by ID',() => {
     });
 });
 
-test('Admin can delete auction by ID', () => {
-    expect(mark.deleteAuction(1)).toEqual([
-    {
-        id: 2, productName: 'Silver Wrist Watch', productDescription: 'Ancient wrist watch',
-        minimumBidAmount: 700000, userId: 1
-    }]);
+describe('Admin can delete user',() => {
+    it('Admin can delete auction by ID', () => {
+        expect(mark.deleteAuction(1)).toEqual([
+        {
+            id: 2, productName: 'Silver Wrist Watch', productDescription: 'Ancient wrist watch',
+            minimumBidAmount: 700000, userId: 1
+        }]);
+        });
 });
 
-test('Admin can show the winner of an auction by auctionID', () => {
-    expect(mark.winnerAuction(2)).toEqual('Tommy');
+describe('Admin can declare winner to auction', () => {
+    it('Admin can show the winner of an auction by auctionID', () => {
+        expect(mark.winnerAuction(2)).toMatch(/^Tommy$/);
+    });
 });
 
